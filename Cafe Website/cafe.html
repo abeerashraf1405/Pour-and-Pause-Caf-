@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>POUR AND PAUSE</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+        <style>
+            /* General Reset and Box Sizing */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            /* Body Styling */
+            body {
+                background-color: rgb(250, 231, 231);
+                color: black;
+                font-family: 'Poppins', sans-serif;
+            }
+            header{
+                position: fixed;
+                width: 100%;
+                top: 0px;
+                z-index: 1;
+            }
+            main{
+                margin-top: 70px;
+            }
+
+            /* Navbar Styling */
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 70px;
+                background-color: rgb(231, 163, 185);
+                padding: 0 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            nav ul {
+                display: flex;
+                gap: 20px;
+            }
+            nav ul li {
+                list-style: none;
+                font-weight: 600;
+                cursor: pointer;
+                transition: color 0.3s ease;
+            }
+            nav ul li a {
+                   color: #000;
+                   text-decoration: none;
+            }
+            nav ul li:hover {
+                color: rgb(255, 87, 139);
+            }
+            nav ul li a:hover {
+                color: rgb(255, 87, 139);
+            }
+            .left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .left img {
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid white;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .left p {
+                font-size: 1rem;
+                font-weight: 600;
+                color: white;
+                margin: 0;
+            }
+            .graph_section{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Main Section Styling */
+            .first {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                margin: 30px 0;
+                padding: 20px;
+                gap: 20px;
+            }
+            .first div {
+                width: 45%;
+                min-width: 300px;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease, background-color 0.3s ease;
+            }
+            .leftsection, .rightsection {
+                background-color: #ffe4e1;
+                text-align: center;
+                font-weight: 600;
+                color: rgb(100, 40, 60);
+                min-height: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            .first div:hover {
+                transform: translateY(-10px);
+                background-color: rgba(255, 204, 211, 0.5);
+            }
+
+            /* Flavors Section */
+            #flavors {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+            #coffee {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+            .flavor-container {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .flavor-card {
+                width: 18%;
+                text-align: center;
+                background-color: #ffe4e1;
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin: 2px;
+            }
+            .flavor-card img {
+                width: 100%;
+                border-radius: 10px;
+                height: 200px;
+            }
+            .flavor-card button {
+                margin-top: 10px;
+                padding: 12px 20px;
+                background-color: rgb(231, 163, 185);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .flavor-card button:hover {
+                background-color: rgb(255, 87, 139);
+            }
+
+            /* Styling the "Show Desserts" and "Show Coffees" Buttons */
+            .leftsection button, .rightsection button {
+                padding: 15px 25px;
+                background-color: rgb(231, 163, 185);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+            .leftsection button:hover, .rightsection button:hover {
+                background-color: rgb(255, 87, 139);
+                transform: translateY(-5px);
+            }
+
+            /* Responsive Styling */
+            @media (max-width: 768px) {
+                nav {
+                    flex-direction: column;
+                    height: auto;
+                    padding: 10px 20px;
+                }
+                nav ul {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .first {
+                    flex-direction: column;
+                }
+                .first div {
+                    width: 90%;
+                }
+                .flavor-card {
+                    width: 100%;
+                }
+            }
+			 /* Contact Section Styling */
+            .contact {
+                margin: 40px auto;
+                padding: 20px;
+                max-width: 800px;
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .contact h2 {
+                text-align: center;
+                color: rgb(100, 40, 60);
+                margin-bottom: 20px;
+            }
+            .contact form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .contact label {
+                font-weight: 600;
+                margin-bottom: 5px;
+            }
+            .contact input, .contact textarea {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1rem;
+                font-family: 'Poppins', sans-serif;
+            }
+            .contact input:focus, .contact textarea:focus {
+                
+                border-color: rgb(231, 163, 185);
+                box-shadow: 0 0 5px rgba(231, 163, 185, 0.5);
+            }
+            .contact button {
+                padding: 10px;
+                background-color: rgb(231, 163, 185);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .contact button:hover {
+                background-color: rgb(255, 87, 139);
+            }
+			  /* Contact Section */
+        #contact p {
+            font-size: 1.1em;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color:  rgb(215, 97, 134);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .hide{
+            display: none;
+        }
+        .price_section {
+            background: white;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+        .price_section div{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .flavor-card .action_button{
+            font-size: 14px;
+            padding: 10px;
+            margin: 0px;
+        }
+        .heading_section{
+            text-align: center;
+            overflow: hidden;
+        }
+        .heading_section p{
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            top: -32px;
+            left: 16px;
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="left">
+                  <img src="logo.png" alt="welcome">
+                  <p>Welcome to our website</p>
+                </div>
+                <div class="right">
+                  <ul>
+                    <li>Home</li>
+                    <li>Menu</li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                  </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="heading_section">
+                <h5 style=" text-align: center; font-size:5rem;font-family: 'Style Script', cursive; color: rgb(188, 121, 132);margin-top: 15px;">Pour And Pause</h5>
+                <p>Coffee & Desserts</p>
+            </div>
+            <section class="graph_section">
+                <img src="together.png" alt="" style="width:60%;height:300px">
+                <img src="unclechef.png" alt="" style="width:30%;height:400px">
+            </section>
+            <section class="first">
+                <div class="leftsection">
+                    <h2>Desserts</h2>
+                    <button id="showFlavors" onclick="showFlavors('desserts')">Show Desserts</button>
+                    <button id="hideFlavors" onclick="hideFlavors('desserts')" style="display: none;">Hide Desserts</button>
+                </div>
+                <div class="rightsection">
+                    <h2>Coffees</h2>
+                    <button id="showcoffees" onclick="showcoffees('coffees')">Show Coffees</button>
+                    <button id="hidecoffees" onclick="hidecoffees('coffees')" style="display: none;">Hide Coffees</button>
+                </div>
+            </section>
+
+
+            <section id="flavors" style="display: none;">
+                <div class="flavor-card">  
+                    <img src="cheesecake.jpeg" alt="Cheesecake">
+                    <h3>Cheesecake</h3>
+                    <button onclick="openFlavorPage('Cheesecake', 'cheesecake.jpeg', '$8')">View Details</button>
+                    <div class="price_section hide" id="Cheesecake">
+                        <p>Price $8</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="brownies.jpeg" alt="Brownies">
+                    <h3>Brownies</h3>
+                    <button onclick="openFlavorPage('Brownies', 'brownies.jpeg', '$5')">View Details</button>
+                    <div class="price_section hide" id="Brownies">
+                        <p>Price $5</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="macarons.jpeg" alt="Macarons">
+                    <h3>Macarons</h3>
+                    <button onclick="openFlavorPage('Macarons', 'macarons.jpeg', '$12')">View Details</button>
+                    <div class="price_section hide" id="Macarons">
+                        <p>Price $12</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Chocolate cake.jpeg" alt="Chocolate Cake">
+                    <h3>Chocolate Cake</h3>
+                    <button onclick="openFlavorPage('Chocolate_Cake', 'Chocolate cake.jpeg', '$7')">View Details</button>
+                    <div class="price_section hide" id="Chocolate_Cake">
+                        <p>Price $7</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Tiramisu.jpeg" alt="Tiramisu">
+                    <h3>Tiramisu</h3>
+                    <button onclick="openFlavorPage('Tiramisu', 'Tiramisu.jpeg', '$10')">View Details</button>
+                    <div class="price_section hide" id="Tiramisu">
+                        <p>Price $10</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="cupcake.jpeg" alt="Cupcakes">
+                    <h3>Cupcakes</h3>
+                    <button onclick="openFlavorPage('Cupcakes', 'cupcake.jpeg', '$6')">View Details</button>
+                    <div class="price_section hide" id="Cupcakes">
+                        <p>Price $6</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Donuts.jpeg" alt="Donuts">
+                    <h3>Donuts</h3>
+                    <button onclick="openFlavorPage('Donuts', 'Donuts.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Donuts">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Apple pies.jpeg" alt="Apple Pie">
+                    <h3>Apple Pie</h3>
+                    <button onclick="openFlavorPage('Apple_Pie', 'Apple pies.jpeg', '$8')">View Details</button>
+                    <div class="price_section hide" id="Apple_Pie">
+                        <p>Price $8</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Panna Cotta.jpeg" alt="Panna Cotta">
+                    <h3>Panna Cotta</h3>
+                    <button onclick="openFlavorPage('Panna_Cotta', 'Panna Cotta.jpeg', '$9')">View Details</button>
+                    <div class="price_section hide" id="Panna_Cotta">
+                        <p>Price $9</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Profiteroles.jpeg" alt="Profiteroles">
+                    <h3>Profiteroles</h3>
+                    <button onclick="openFlavorPage('Profiteroles', 'Profiteroles.jpeg', '$7')">View Details</button>
+                    <div class="price_section hide" id="Profiteroles">
+                        <p>Price $7</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="coffee" style="display: none;">
+                <div class="flavor-card">  
+                    <img src="espresso.jpeg" alt="Espresso">
+                    <h3>Espresso</h3>
+                    <button onclick="openFlavorPage('Espresso', 'espresso.jpeg', '$3')">View Details</button>
+                    <div class="price_section hide" id="Espresso">
+                        <p>Price $3</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="latte.jpeg" alt="Latte">
+                    <h3>Latte</h3>
+                    <button onclick="openFlavorPage('Latte', 'latte.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Latte">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="cappuccino.jpeg" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                    <button onclick="openFlavorPage('Cappuccino', 'cappuccino.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Cappuccino">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="americano.jpeg" alt="Americano">
+                    <h3>Americano</h3>
+                    <button onclick="openFlavorPage('Americano', 'americano.jpeg', '$3')">View Details</button>
+                    <div class="price_section hide" id="Americano">
+                        <p>Price $3</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="mocha.jpeg" alt="Mocha">
+                    <h3>Mocha</h3>
+                    <button onclick="openFlavorPage('Mocha', 'mocha.jpeg', '$5')">View Details</button>
+                    <div class="price_section hide" id="Mocha">
+                        <p>Price $5</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="flat-white.jpeg" alt="Flat White">
+                    <h3>Flat White</h3>
+                    <button onclick="openFlavorPage('Flat_White ', 'flat-white.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Flat_White">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="macchiato.jpeg" alt="Macchiato">
+                    <h3>Macchiato</h3>
+                    <button onclick="openFlavorPage('Macchiato', 'macchiato.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Macchiato">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="affogato.jpeg" alt="Affogato">
+                    <h3>Affogato</h3>
+                    <button onclick="openFlavorPage('Affogato', 'affogato.jpeg', '$6')">View Details</button>
+                    <div class="price_section hide" id="Affogato">
+                        <p>Price $6</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="cold-brew.jpeg" alt="Cold Brew">
+                    <h3>Cold Brew</h3>
+                    <button onclick="openFlavorPage('Cold_Brew', 'cold-brew.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Cold_Brew">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="irish-coffee.jpeg" alt="Irish Coffee">
+                    <h3>Irish Coffee</h3>
+                    <button onclick="openFlavorPage('Irish_Coffee', 'irish-coffee.jpeg', '$7')">View Details</button>
+                    <div class="price_section hide" id="Irish_Coffee">
+                        <p>Price $7</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">add to cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+			 <!-- About Us Section -->
+            <section id="about" class="about-us" style="margin: auto; max-width: 800px; padding: 40px; background-color: #fff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <h2 style="text-align: center; color: rgb(100, 40, 60); margin-bottom: 20px;">About Us</h2>
+                <p style="font-size: 1rem; line-height: 1.6; color: rgb(50, 50, 50);">
+                    At POUR AND PAUSE, we believe in creating unforgettable moments for our customers through an exceptional dining experience. Our mission is to bring people together over delicious desserts and the perfect cup of coffee. Each recipe is crafted with love, and we source only the finest ingredients to ensure every bite and sip leaves you wanting more. Come and relax in our cozy ambiance, where every detail is designed to make you feel right at home.
+                </p>
+            </section>
+
+            <section class="contact" id="contact">
+                <h2>Contact Us</h2>
+                <form action="#" method="POST">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
+
+        <script>
+            // Function to show flavors for desserts or coffees
+            function showFlavors(type) {
+                document.getElementById('flavors').removeAttribute('style');
+                document.getElementById('showFlavors').setAttribute('style','display:none');
+
+                document.getElementById('hideFlavors').removeAttribute('style');
+                document.getElementById('coffee').setAttribute('style','display:none');
+
+                document.getElementById('showcoffees').removeAttribute('style');
+                document.getElementById('hidecoffees').setAttribute('style','display:none');
+            }
+            function hideFlavors(type) {
+                document.getElementById('flavors').setAttribute('style','display:none');
+                document.getElementById('showFlavors').removeAttribute('style');
+                document.getElementById('hideFlavors').setAttribute('style','display:none');
+            }
+
+            function showcoffees(type) {
+                document.getElementById('coffee').removeAttribute('style');
+                document.getElementById('flavors').setAttribute('style','display:none');
+                document.getElementById('hidecoffees').removeAttribute('style');
+                document.getElementById('showcoffees').setAttribute('style','display:none');
+
+                document.getElementById('showFlavors').removeAttribute('style');
+                document.getElementById('hideFlavors').setAttribute('style','display:none');
+            }
+            function hidecoffees(type) {
+                document.getElementById('coffee').setAttribute('style','display:none');
+                document.getElementById('showcoffees').removeAttribute('style');
+                document.getElementById('hidecoffees').setAttribute('style','display:none');
+            }
+            
+            function openFlavorPage(name, image, price) {
+                document.getElementById(name).classList.toggle('hide');
+            }
+            function add_now(){
+                alert('Your order is added to cart')
+            }
+            function buy_now(){
+                alert('Thank you for your order')
+            }
+        </script>
+		<footer>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>📍 123 Cafe Street, Blissville</p>
+            <p>📞 (123) 456-7890</p>
+            <p>📧 info@pourandpause.com</p>
+            
+        </section>
+            <p style="font-size: 1rem; line-height: 1.6; color: rgb(255, 255, 255); background-color: rgb(193, 110, 182);">&copy; 2024 Pour and Pause. All rights reserved.</p>
+        
+        </footer>
+    </body>
+</html>
