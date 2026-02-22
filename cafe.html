@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>POUR AND PAUSE</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet">
+        <style>
+            /* General Reset and Box Sizing */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            /* Body Styling */
+            body {
+                background-color: rgb(250, 231, 231);
+                color: black;
+                font-family: 'Poppins', sans-serif;
+            }
+            header{
+                position: fixed;
+                width: 100%;
+                top: 0px;
+                z-index: 1;
+            }
+            main{
+                margin-top: 70px;
+            }
+
+            /* Navbar Styling */
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 70px;
+                background-color: rgb(231, 163, 185);
+                padding: 0 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            nav ul {
+                display: flex;
+                gap: 20px;
+            }
+            nav ul li {
+                list-style: none;
+                font-weight: 600;
+                cursor: pointer;
+                transition: color 0.3s ease;
+            }
+            nav ul li a {
+                   color: #000;
+                   text-decoration: none;
+            }
+            nav ul li:hover {
+                color: rgb(255, 87, 139);
+            }
+            nav ul li a:hover {
+                color: rgb(255, 87, 139);
+            }
+            .left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .left img {
+                height: 60px;
+                width: 60px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid white;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .left p {
+                font-size: 1rem;
+                font-weight: 600;
+                color: white;
+                margin: 0;
+            }
+            .graph_section{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Main Section Styling */
+            .first {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: center;
+                margin: 30px 0;
+                padding: 20px;
+                gap: 20px;
+            }
+            .first div {
+                width: 45%;
+                min-width: 300px;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease, background-color 0.3s ease;
+            }
+            .leftsection, .rightsection {
+                background-color: #ffe4e1;
+                text-align: center;
+                font-weight: 600;
+                color: rgb(100, 40, 60);
+                min-height: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            .first div:hover {
+                transform: translateY(-10px);
+                background-color: rgba(255, 204, 211, 0.5);
+            }
+
+            /* Flavors Section */
+            #flavors {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+            #coffee {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+            .flavor-container {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .flavor-card {
+                width: 18%;
+                text-align: center;
+                background-color: #ffe4e1;
+                border-radius: 10px;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                margin: 2px;
+            }
+            .flavor-card img {
+                width: 100%;
+                border-radius: 10px;
+                height: 200px;
+            }
+            .flavor-card button {
+                margin-top: 10px;
+                padding: 12px 20px;
+                background-color: rgb(231, 163, 185);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .flavor-card button:hover {
+                background-color: rgb(255, 87, 139);
+            }
+
+            /* Styling the "Show Desserts" and "Show Coffees" Buttons */
+            .leftsection button, .rightsection button {
+                padding: 15px 25px;
+                background-color: rgb(231, 163, 185);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+            .leftsection button:hover, .rightsection button:hover {
+                background-color: rgb(255, 87, 139);
+                transform: translateY(-5px);
+            }
+
+            /* Responsive Styling */
+            @media (max-width: 768px) {
+                nav {
+                    flex-direction: column;
+                    height: auto;
+                    padding: 10px 20px;
+                }
+                nav ul {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .first {
+                    flex-direction: column;
+                }
+                .first div {
+                    width: 90%;
+                }
+                .flavor-card {
+                    width: 100%;
+                }
+            }
+			 /* Contact Section Styling */
+            .contact {
+                margin: 40px auto;
+                padding: 20px;
+                max-width: 800px;
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .contact h2 {
+                text-align: center;
+                color: rgb(100, 40, 60);
+                margin-bottom: 20px;
+            }
+            .contact form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .contact label {
+                font-weight: 600;
+                margin-bottom: 5px;
+            }
+            .contact input, .contact textarea {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1rem;
+                font-family: 'Poppins', sans-serif;
+            }
+            .contact input:focus, .contact textarea:focus {
+                
+                border-color: rgb(231, 163, 185);
+                box-shadow: 0 0 5px rgba(231, 163, 185, 0.5);
+            }
+            .contact button {
+                padding: 10px;
+                background-color: rgb(231, 163, 185);
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .contact button:hover {
+                background-color: rgb(255, 87, 139);
+            }
+			  /* Contact Section */
+        #contact p {
+            font-size: 1.1em;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color:  rgb(215, 97, 134);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .hide{
+            display: none;
+        }
+        .price_section {
+            background: white;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+        .price_section div{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .flavor-card .action_button{
+            font-size: 14px;
+            padding: 10px;
+            margin: 0px;
+        }
+        .heading_section{
+            text-align: center;
+            overflow: hidden;
+        }
+        .heading_section p{
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+            position: relative;
+            top: -32px;
+            left: 16px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 400px;
+            max-width: 90%;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: rgb(255, 87, 139);
+        }
+        
+        .modal h2 {
+            color: rgb(100, 40, 60);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        .modal button {
+            width: 100%;
+            padding: 12px;
+            background-color: rgb(231, 163, 185);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .modal button:hover {
+            background-color: rgb(255, 87, 139);
+        }
+        
+        /* Cart Styles */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .cart-total {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 20px;
+            color: rgb(100, 40, 60);
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: rgb(255, 87, 139);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        
+        nav button {
+            background-color: rgb(231, 163, 185);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        nav button:hover {
+            background-color: rgb(255, 87, 139);
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="left">
+                  <img src="logo.png" alt="welcome">
+                  <p>Welcome to our website</p>
+                </div>
+                <div class="right">
+                  <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                    <li><button id="cartBtn" onclick="openCart()">Cart (<span id="cartCount">0</span>)</button></li>
+                    <li><button id="loginBtn" onclick="openLogin()">Login</button></li>
+                    <li><button id="signupBtn" onclick="openSignup()">Signup</button></li>
+                    <li id="userWelcome" style="display: none;">Welcome, <span id="userName"></span>! <button onclick="logout()">Logout</button></li>
+                  </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="heading_section">
+                <h5 style=" text-align: center; font-size:5rem;font-family: 'Style Script', cursive; color: rgb(188, 121, 132);margin-top: 15px;">Pour And Pause</h5>
+                <p>Coffee & Desserts</p>
+            </div>
+            <section class="graph_section">
+                <img src="together.png" alt="" style="width:60%;height:300px">
+                <img src="unclechef.png" alt="" style="width:30%;height:400px">
+            </section>
+            <section class="first">
+                <div class="leftsection">
+                    <h2>Desserts</h2>
+                    <button id="showFlavors" onclick="showFlavors('desserts')">Show Desserts</button>
+                    <button id="hideFlavors" onclick="hideFlavors('desserts')" style="display: none;">Hide Desserts</button>
+                </div>
+                <div class="rightsection">
+                    <h2>Coffees</h2>
+                    <button id="showcoffees" onclick="showcoffees('coffees')">Show Coffees</button>
+                    <button id="hidecoffees" onclick="hidecoffees('coffees')" style="display: none;">Hide Coffees</button>
+                </div>
+            </section>
+
+
+            <section id="flavors" style="display: none;">
+                <div class="flavor-card">  
+                    <img src="cheesecake.jpeg" alt="Cheesecake">
+                    <h3>Cheesecake</h3>
+                    <button onclick="openFlavorPage('Cheesecake', 'cheesecake.jpeg', '$8')">View Details</button>
+                    <div class="price_section hide" id="Cheesecake">
+                        <p>Price $8</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="brownies.jpeg" alt="Brownies">
+                    <h3>Brownies</h3>
+                    <button onclick="openFlavorPage('Brownies', 'brownies.jpeg', '$5')">View Details</button>
+                    <div class="price_section hide" id="Brownies">
+                        <p>Price $5</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="macarons.jpeg" alt="Macarons">
+                    <h3>Macarons</h3>
+                    <button onclick="openFlavorPage('Macarons', 'macarons.jpeg', '$12')">View Details</button>
+                    <div class="price_section hide" id="Macarons">
+                        <p>Price $12</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Chocolate cake.jpeg" alt="Chocolate Cake">
+                    <h3>Chocolate Cake</h3>
+                    <button onclick="openFlavorPage('Chocolate_Cake', 'Chocolate cake.jpeg', '$7')">View Details</button>
+                    <div class="price_section hide" id="Chocolate_Cake">
+                        <p>Price $7</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Tiramisu.jpeg" alt="Tiramisu">
+                    <h3>Tiramisu</h3>
+                    <button onclick="openFlavorPage('Tiramisu', 'Tiramisu.jpeg', '$10')">View Details</button>
+                    <div class="price_section hide" id="Tiramisu">
+                        <p>Price $10</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="cupcake.jpeg" alt="Cupcakes">
+                    <h3>Cupcakes</h3>
+                    <button onclick="openFlavorPage('Cupcakes', 'cupcake.jpeg', '$6')">View Details</button>
+                    <div class="price_section hide" id="Cupcakes">
+                        <p>Price $6</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Donuts.jpeg" alt="Donuts">
+                    <h3>Donuts</h3>
+                    <button onclick="openFlavorPage('Donuts', 'Donuts.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Donuts">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Apple pies.jpeg" alt="Apple Pie">
+                    <h3>Apple Pie</h3>
+                    <button onclick="openFlavorPage('Apple_Pie', 'Apple pies.jpeg', '$8')">View Details</button>
+                    <div class="price_section hide" id="Apple_Pie">
+                        <p>Price $8</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Panna Cotta.jpeg" alt="Panna Cotta">
+                    <h3>Panna Cotta</h3>
+                    <button onclick="openFlavorPage('Panna_Cotta', 'Panna Cotta.jpeg', '$9')">View Details</button>
+                    <div class="price_section hide" id="Panna_Cotta">
+                        <p>Price $9</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="Profiteroles.jpeg" alt="Profiteroles">
+                    <h3>Profiteroles</h3>
+                    <button onclick="openFlavorPage('Profiteroles', 'Profiteroles.jpeg', '$7')">View Details</button>
+                    <div class="price_section hide" id="Profiteroles">
+                        <p>Price $7</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="coffee" style="display: none;">
+                <div class="flavor-card">  
+                    <img src="espresso.jpeg" alt="Espresso">
+                    <h3>Espresso</h3>
+                    <button onclick="openFlavorPage('Espresso', 'espresso.jpeg', '$3')">View Details</button>
+                    <div class="price_section hide" id="Espresso">
+                        <p>Price $3</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="latte.jpeg" alt="Latte">
+                    <h3>Latte</h3>
+                    <button onclick="openFlavorPage('Latte', 'latte.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Latte">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="cappuccino.jpeg" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                    <button onclick="openFlavorPage('Cappuccino', 'cappuccino.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Cappuccino">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="americano.jpeg" alt="Americano">
+                    <h3>Americano</h3>
+                    <button onclick="openFlavorPage('Americano', 'americano.jpeg', '$3')">View Details</button>
+                    <div class="price_section hide" id="Americano">
+                        <p>Price $3</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="mocha.jpeg" alt="Mocha">
+                    <h3>Mocha</h3>
+                    <button onclick="openFlavorPage('Mocha', 'mocha.jpeg', '$5')">View Details</button>
+                    <div class="price_section hide" id="Mocha">
+                        <p>Price $5</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="flat-white.jpeg" alt="Flat White">
+                    <h3>Flat White</h3>
+                    <button onclick="openFlavorPage('Flat_White ', 'flat-white.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Flat_White">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="macchiato.jpeg" alt="Macchiato">
+                    <h3>Macchiato</h3>
+                    <button onclick="openFlavorPage('Macchiato', 'macchiato.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Macchiato">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="affogato.jpeg" alt="Affogato">
+                    <h3>Affogato</h3>
+                    <button onclick="openFlavorPage('Affogato', 'affogato.jpeg', '$6')">View Details</button>
+                    <div class="price_section hide" id="Affogato">
+                        <p>Price $6</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="cold-brew.jpeg" alt="Cold Brew">
+                    <h3>Cold Brew</h3>
+                    <button onclick="openFlavorPage('Cold_Brew', 'cold-brew.jpeg', '$4')">View Details</button>
+                    <div class="price_section hide" id="Cold_Brew">
+                        <p>Price $4</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flavor-card">  
+                    <img src="irish-coffee.jpeg" alt="Irish Coffee">
+                    <h3>Irish Coffee</h3>
+                    <button onclick="openFlavorPage('Irish_Coffee', 'irish-coffee.jpeg', '$7')">View Details</button>
+                    <div class="price_section hide" id="Irish_Coffee">
+                        <p>Price $7</p>
+                        <div>
+                            <button class="action_button" onclick="add_now()">Add to Cart</button>
+                            <button class="action_button" onclick="buy_now()">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+			 <!-- About Us Section -->
+            <section id="about" class="about-us" style="margin: auto; max-width: 800px; padding: 40px; background-color: #fff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <h2 style="text-align: center; color: rgb(100, 40, 60); margin-bottom: 20px;">About Us</h2>
+                <p style="font-size: 1rem; line-height: 1.6; color: rgb(50, 50, 50);">
+                    At POUR AND PAUSE, we believe in creating unforgettable moments for our customers through an exceptional dining experience. Our mission is to bring people together over delicious desserts and the perfect cup of coffee. Each recipe is crafted with love, and we source only the finest ingredients to ensure every bite and sip leaves you wanting more. Come and relax in our cozy ambiance, where every detail is designed to make you feel right at home.
+                </p>
+            </section>
+
+            <section class="contact" id="contact">
+                <h2>Contact Us</h2>
+                <form action="#" method="POST">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeLogin()">&times;</span>
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p style="text-align: center; margin-top: 15px;">
+                    Don't have an account? <a href="#" onclick="switchToSignup()" style="color: rgb(255, 87, 139);">Sign up here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Signup Modal -->
+        <div id="signupModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeSignup()">&times;</span>
+                <h2>Sign Up</h2>
+                <form id="signupForm">
+                    <input type="text" id="signupName" placeholder="Full Name" required>
+                    <input type="email" id="signupEmail" placeholder="Email" required>
+                    <input type="password" id="signupPassword" placeholder="Password" required>
+                    <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p style="text-align: center; margin-top: 15px;">
+                    Already have an account? <a href="#" onclick="switchToLogin()" style="color: rgb(255, 87, 139);">Login here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Cart Modal -->
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCart()">&times;</span>
+                <h2>Shopping Cart</h2>
+                <div id="cartItems"></div>
+                <div class="cart-total" id="cartTotal">Total: $0.00</div>
+                <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+            </div>
+        </div>
+
+        <!-- Checkout Modal -->
+        <div id="checkoutModal" class="modal">
+            <div class="modal-content" style="width: 500px;">
+                <span class="close" onclick="closeCheckout()">&times;</span>
+                <h2>Checkout</h2>
+                <form id="checkoutForm">
+                    <h3 style="color: rgb(100, 40, 60); margin-bottom: 10px;">Shipping Address</h3>
+                    <input type="text" id="fullName" placeholder="Full Name" required>
+                    <input type="text" id="streetAddress" placeholder="Street Address" required>
+                    <input type="text" id="city" placeholder="City" required>
+                    <input type="text" id="state" placeholder="State/Province" required>
+                    <input type="text" id="zipCode" placeholder="ZIP/Postal Code" required>
+                    <input type="text" id="country" placeholder="Country" required>
+                    
+                    <h3 style="color: rgb(100, 40, 60); margin: 20px 0 10px 0;">Contact Information</h3>
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                    <input type="email" id="emailAddress" placeholder="Email Address" required>
+                    
+                    <h3 style="color: rgb(100, 40, 60); margin: 20px 0 10px 0;">Payment Method</h3>
+                    <select id="paymentMethod" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+                        <option value="">Select Payment Method</option>
+                        <option value="credit">Credit Card</option>
+                        <option value="debit">Debit Card</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="apple">Apple Pay</option>
+                        <option value="google">Google Pay</option>
+                        <option value="cash">Cash on Delivery</option>
+                    </select>
+                    
+                    <div id="cardDetails" style="display: none;">
+                        <input type="text" id="cardNumber" placeholder="Card Number" maxlength="19">
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" style="flex: 1;">
+                            <input type="text" id="cvv" placeholder="CVV" maxlength="4" style="flex: 1;">
+                        </div>
+                        <input type="text" id="cardName" placeholder="Name on Card">
+                    </div>
+                    
+                    <div class="checkout-summary" style="background: #f9f9f9; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                        <h4 style="margin-bottom: 10px; color: rgb(100, 40, 60);">Order Summary</h4>
+                        <div id="checkoutItems"></div>
+                        <div class="checkout-total" style="font-weight: bold; font-size: 1.2em; margin-top: 10px; color: rgb(100, 40, 60);"></div>
+                    </div>
+                    
+                    <button type="submit" style="width: 100%; padding: 15px; background-color: rgb(255, 87, 139); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 15px;">
+                        Complete Order
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // Global variables
+            let currentUser = null;
+            let cart = [];
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Check if user is logged in on page load
+            window.onload = function() {
+                const savedUser = localStorage.getItem('currentUser');
+                if (savedUser) {
+                    currentUser = JSON.parse(savedUser);
+                    updateUserInterface();
+                }
+                updateCartDisplay();
+            };
+
+            // Function to show flavors for desserts or coffees
+            function showFlavors(type) {
+                document.getElementById('flavors').removeAttribute('style');
+                document.getElementById('showFlavors').setAttribute('style','display:none');
+                document.getElementById('hideFlavors').removeAttribute('style');
+                document.getElementById('coffee').setAttribute('style','display:none');
+                document.getElementById('showcoffees').removeAttribute('style');
+                document.getElementById('hidecoffees').setAttribute('style','display:none');
+            }
+
+            function hideFlavors(type) {
+                document.getElementById('flavors').setAttribute('style','display:none');
+                document.getElementById('showFlavors').removeAttribute('style');
+                document.getElementById('hideFlavors').setAttribute('style','display:none');
+            }
+
+            function showcoffees(type) {
+                document.getElementById('coffee').removeAttribute('style');
+                document.getElementById('flavors').setAttribute('style','display:none');
+                document.getElementById('hidecoffees').removeAttribute('style');
+                document.getElementById('showcoffees').setAttribute('style','display:none');
+                document.getElementById('showFlavors').removeAttribute('style');
+                document.getElementById('hideFlavors').setAttribute('style','display:none');
+            }
+
+            function hidecoffees(type) {
+                document.getElementById('coffee').setAttribute('style','display:none');
+                document.getElementById('showcoffees').removeAttribute('style');
+                document.getElementById('hidecoffees').setAttribute('style','display:none');
+            }
+            
+            function openFlavorPage(name, image, price) {
+                document.getElementById(name).classList.toggle('hide');
+            }
+
+            // Login/Signup Functions
+            function openLogin() {
+                document.getElementById('loginModal').style.display = 'block';
+            }
+
+            function closeLogin() {
+                document.getElementById('loginModal').style.display = 'none';
+            }
+
+            function openSignup() {
+                document.getElementById('signupModal').style.display = 'block';
+            }
+
+            function closeSignup() {
+                document.getElementById('signupModal').style.display = 'none';
+            }
+
+            function switchToSignup() {
+                closeLogin();
+                openSignup();
+            }
+
+            function switchToLogin() {
+                closeSignup();
+                openLogin();
+            }
+
+            // Handle login form submission
+            document.getElementById('loginForm').onsubmit = function(e) {
+                e.preventDefault();
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                const user = users.find(u => u.email === email && u.password === password);
+                
+                if (user) {
+                    currentUser = user;
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    updateUserInterface();
+                    closeLogin();
+                    alert('Login successful!');
+                } else {
+                    alert('Invalid email or password!');
+                }
+            };
+
+            // Handle signup form submission
+            document.getElementById('signupForm').onsubmit = function(e) {
+                e.preventDefault();
+                const name = document.getElementById('signupName').value;
+                const email = document.getElementById('signupEmail').value;
+                const password = document.getElementById('signupPassword').value;
+                const confirmPassword = document.getElementById('signupConfirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+                
+                if (users.find(u => u.email === email)) {
+                    alert('User with this email already exists!');
+                    return;
+                }
+                
+                const newUser = { name, email, password };
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                currentUser = newUser;
+                localStorage.setItem('currentUser', JSON.stringify(newUser));
+                updateUserInterface();
+                closeSignup();
+                alert('Account created successfully!');
+            };
+
+            function updateUserInterface() {
+                if (currentUser) {
+                    document.getElementById('loginBtn').style.display = 'none';
+                    document.getElementById('signupBtn').style.display = 'none';
+                    document.getElementById('userWelcome').style.display = 'block';
+                    document.getElementById('userName').textContent = currentUser.name;
+                } else {
+                    document.getElementById('loginBtn').style.display = 'block';
+                    document.getElementById('signupBtn').style.display = 'block';
+                    document.getElementById('userWelcome').style.display = 'none';
+                }
+            }
+
+            function logout() {
+                currentUser = null;
+                localStorage.removeItem('currentUser');
+                cart = [];
+                updateUserInterface();
+                updateCartDisplay();
+                alert('Logged out successfully!');
+            }
+
+            // Cart Functions
+            function openCart() {
+                document.getElementById('cartModal').style.display = 'block';
+                displayCartItems();
+            }
+
+            function closeCart() {
+                document.getElementById('cartModal').style.display = 'none';
+            }
+
+            function add_now() {
+                if (!currentUser) {
+                    alert('Please login to add items to cart!');
+                    openLogin();
+                    return;
+                }
+
+                // Get the item details from the clicked button's parent
+                const button = event.target;
+                const card = button.closest('.flavor-card');
+                const name = card.querySelector('h3').textContent;
+                const image = card.querySelector('img').src;
+                const priceText = card.querySelector('.price_section p').textContent;
+                const price = parseFloat(priceText.replace('Price $', ''));
+
+                const item = { name, image, price, quantity: 1 };
+                
+                // Check if item already exists in cart
+                const existingItem = cart.find(cartItem => cartItem.name === name);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push(item);
+                }
+                
+                updateCartDisplay();
+                alert('Item added to cart!');
+            }
+
+            function buy_now() {
+                if (!currentUser) {
+                    alert('Please login to make a purchase!');
+                    openLogin();
+                    return;
+                }
+
+                // Get the item details from the clicked button's parent
+                const button = event.target;
+                const card = button.closest('.flavor-card');
+                const name = card.querySelector('h3').textContent;
+                const image = card.querySelector('img').src;
+                const priceText = card.querySelector('.price_section p').textContent;
+                const price = parseFloat(priceText.replace('Price $', ''));
+
+                // Create a temporary cart with just this item for checkout
+                const singleItem = [{ name, image, price, quantity: 1 }];
+                openCheckoutModal(singleItem);
+            }
+
+            function updateCartDisplay() {
+                document.getElementById('cartCount').textContent = cart.reduce((total, item) => total + item.quantity, 0);
+            }
+
+            function displayCartItems() {
+                const cartItemsDiv = document.getElementById('cartItems');
+                const cartTotalDiv = document.getElementById('cartTotal');
+                
+                if (cart.length === 0) {
+                    cartItemsDiv.innerHTML = '<p style="text-align: center; color: #666;">Your cart is empty</p>';
+                    cartTotalDiv.textContent = 'Total: $0.00';
+                    return;
+                }
+
+                let html = '';
+                let total = 0;
+                
+                cart.forEach((item, index) => {
+                    total += item.price * item.quantity;
+                    html += `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div style="flex-grow: 1; margin-left: 10px;">
+                                <strong>${item.name}</strong><br>
+                                $${item.price.toFixed(2)} x ${item.quantity}
+                            </div>
+                            <div>
+                                <button onclick="changeQuantity(${index}, -1)" style="padding: 5px 8px; margin: 2px;">-</button>
+                                <button onclick="changeQuantity(${index}, 1)" style="padding: 5px 8px; margin: 2px;">+</button>
+                                <button onclick="removeFromCart(${index})" style="padding: 5px 8px; margin: 2px; background-color: #ff4444;">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItemsDiv.innerHTML = html;
+                cartTotalDiv.textContent = `Total: $${total.toFixed(2)}`;
+            }
+
+            function changeQuantity(index, change) {
+                cart[index].quantity += change;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+                updateCartDisplay();
+                displayCartItems();
+            }
+
+            function removeFromCart(index) {
+                cart.splice(index, 1);
+                updateCartDisplay();
+                displayCartItems();
+            }
+
+            function checkout() {
+                if (cart.length === 0) {
+                    alert('Your cart is empty!');
+                    return;
+                }
+
+                openCheckoutModal(cart);
+                closeCart();
+            }
+
+            function openCheckoutModal(items) {
+                document.getElementById('checkoutModal').style.display = 'block';
+                displayCheckoutItems(items);
+                
+                // Store items for checkout processing
+                window.checkoutItems = items;
+            }
+
+            function closeCheckout() {
+                document.getElementById('checkoutModal').style.display = 'none';
+                // Clear card details
+                document.getElementById('cardDetails').style.display = 'none';
+                document.getElementById('checkoutForm').reset();
+            }
+
+            function displayCheckoutItems(items) {
+                const checkoutItemsDiv = document.getElementById('checkoutItems');
+                const checkoutTotalDiv = document.querySelector('.checkout-total');
+                
+                let html = '';
+                let total = 0;
+                
+                items.forEach(item => {
+                    total += item.price * item.quantity;
+                    html += `
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>${item.name} x ${item.quantity}</span>
+                            <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                        </div>
+                    `;
+                });
+                
+                checkoutItemsDiv.innerHTML = html;
+                checkoutTotalDiv.textContent = `Total: $${total.toFixed(2)}`;
+            }
+
+            // Handle payment method selection
+            document.addEventListener('DOMContentLoaded', function() {
+                const paymentMethodSelect = document.getElementById('paymentMethod');
+                const cardDetails = document.getElementById('cardDetails');
+                
+                if (paymentMethodSelect) {
+                    paymentMethodSelect.addEventListener('change', function() {
+                        if (this.value === 'credit' || this.value === 'debit') {
+                            cardDetails.style.display = 'block';
+                            // Make card fields required
+                            document.getElementById('cardNumber').required = true;
+                            document.getElementById('expiryDate').required = true;
+                            document.getElementById('cvv').required = true;
+                            document.getElementById('cardName').required = true;
+                        } else {
+                            cardDetails.style.display = 'none';
+                            // Make card fields not required
+                            document.getElementById('cardNumber').required = false;
+                            document.getElementById('expiryDate').required = false;
+                            document.getElementById('cvv').required = false;
+                            document.getElementById('cardName').required = false;
+                        }
+                    });
+                }
+            });
+
+            // Handle checkout form submission
+            document.addEventListener('DOMContentLoaded', function() {
+                const checkoutForm = document.getElementById('checkoutForm');
+                if (checkoutForm) {
+                    checkoutForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        // Get form data
+                        const formData = {
+                            fullName: document.getElementById('fullName').value,
+                            address: {
+                                street: document.getElementById('streetAddress').value,
+                                city: document.getElementById('city').value,
+                                state: document.getElementById('state').value,
+                                zip: document.getElementById('zipCode').value,
+                                country: document.getElementById('country').value
+                            },
+                            phone: document.getElementById('phoneNumber').value,
+                            email: document.getElementById('emailAddress').value,
+                            paymentMethod: document.getElementById('paymentMethod').value
+                        };
+                        
+                        // Calculate total
+                        const total = window.checkoutItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                        
+                        // Simulate order processing
+                        alert(`Order confirmed!\n\nThank you ${formData.fullName}!\nTotal: $${total.toFixed(2)}\nPayment Method: ${formData.paymentMethod}\nShipping to: ${formData.address.street}, ${formData.address.city}\n\nYour order will be delivered to your address. You will receive a confirmation email shortly.`);
+                        
+                        // Clear cart if this was a cart checkout
+                        if (window.checkoutItems === cart) {
+                            cart = [];
+                            updateCartDisplay();
+                        }
+                        
+                        closeCheckout();
+                    });
+                }
+            });
+
+            // Format card number input
+            document.addEventListener('DOMContentLoaded', function() {
+                const cardNumberInput = document.getElementById('cardNumber');
+                const expiryInput = document.getElementById('expiryDate');
+                
+                if (cardNumberInput) {
+                    cardNumberInput.addEventListener('input', function(e) {
+                        let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+                        let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                        if (formattedValue.length > 19) formattedValue = formattedValue.slice(0, 19);
+                        e.target.value = formattedValue;
+                    });
+                }
+                
+                if (expiryInput) {
+                    expiryInput.addEventListener('input', function(e) {
+                        let value = e.target.value.replace(/\D/g, '');
+                        if (value.length >= 2) {
+                            value = value.slice(0, 2) + '/' + value.slice(2, 4);
+                        }
+                        e.target.value = value;
+                    });
+                }
+            });
+
+            // Close modals when clicking outside
+            window.onclick = function(event) {
+                if (event.target.classList.contains('modal')) {
+                    event.target.style.display = 'none';
+                }
+            };
+        </script>
+		<footer>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>📍 123 Cafe Street, Blissville</p>
+            <p>📞 (123) 456-7890</p>
+            <p>📧 info@pourandpause.com</p>
+            
+        </section>
+            <p style="font-size: 1rem; line-height: 1.6; color: rgb(255, 255, 255); background-color: rgb(193, 110, 182);">&copy; 2024 Pour and Pause. All rights reserved.</p>
+        
+        </footer>
+    </body>
+</html>
+
